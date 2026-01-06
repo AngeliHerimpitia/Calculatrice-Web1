@@ -1,6 +1,18 @@
 const display = document.getElementById('result');
 const toggleBtn = document.getElementById('toggle-theme');
+const historyList = document.getElementById('history-list');
 
+// AJOUTER CALCUL À L'HISTORIQUE
+function addToHistory(expression, result) {
+    const li = document.createElement('li');
+    li.textContent = `${expression} = ${result}`;
+    li.addEventListener('click', () => {
+        display.value = result; // Reutiliser le résultat
+    });
+    historyList.prepend(li); // Afficher le dernier calcul en haut
+}
+
+// FONCTIONS DE CALCUL
 function appendToDisplay(value) {
     display.value += value;
 }
@@ -15,8 +27,9 @@ function deleteLast() {
 
 function calculate() {
     try {
-        let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
-        let result = eval(expression);
+        const expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
+        const result = eval(expression);
+        addToHistory(display.value, result); // Ajouter à l'historique
         display.value = result;
     } catch {
         display.value = 'Erreur';
@@ -33,7 +46,6 @@ toggleBtn.addEventListener('click', () => {
 // SUPPORT CLAVIER
 document.addEventListener('keydown', (event) => {
     const key = event.key;
-
     if (key >= '0' && key <= '9') appendToDisplay(key);
     else if (key === '+' || key === '-' || key === '*' || key === '/')
         appendToDisplay(key === '*' ? '×' : key === '/' ? '÷' : key);
