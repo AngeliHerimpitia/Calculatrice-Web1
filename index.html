@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <div class="calculator">
+        <div class="top-bar">
+            <h2>Calculatrice</h2>
+            <button id="toggle-theme">🌙</button>
+        </div>
+
+        <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="delete" onclick="deleteLast()">⌫</button>
+            <button class="operator" onclick="appendToDisplay('÷')">÷</button>
+            <button class="operator" onclick="appendToDisplay('×')">×</button>
+
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="equals" onclick="calculate()">=</button>
+
+            <button class="zero" onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+        </div>
+
+        <!-- Historique des calculs -->
+        <div class="history">
+            <h3>Historique</h3>
+            <button id="clear-history" style="display: none;">Tout supprimer</button>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
