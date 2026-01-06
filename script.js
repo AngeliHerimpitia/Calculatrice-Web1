@@ -7,29 +7,20 @@ function addToHistory(expression, result) {
     const li = document.createElement('li');
     li.textContent = `${expression} = ${result}`;
     li.addEventListener('click', () => {
-        display.value = result; // Reutiliser le résultat
+        display.value = result; // réutiliser le résultat
     });
-    historyList.prepend(li); // Afficher le dernier calcul en haut
+    historyList.prepend(li); // dernier calcul en haut
 }
 
-// FONCTIONS DE CALCUL
-function appendToDisplay(value) {
-    display.value += value;
-}
-
-function clearDisplay() {
-    display.value = '';
-}
-
-function deleteLast() {
-    display.value = display.value.slice(0, -1);
-}
-
+// FONCTIONS CALCUL
+function appendToDisplay(value) { display.value += value; }
+function clearDisplay() { display.value = ''; }
+function deleteLast() { display.value = display.value.slice(0, -1); }
 function calculate() {
     try {
         const expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
         const result = eval(expression);
-        addToHistory(display.value, result); // Ajouter à l'historique
+        addToHistory(display.value, result);
         display.value = result;
     } catch {
         display.value = 'Erreur';
@@ -54,3 +45,4 @@ document.addEventListener('keydown', (event) => {
     else if (key === '.') appendToDisplay('.');
     else if (key.toLowerCase() === 'c') clearDisplay();
 });
+
