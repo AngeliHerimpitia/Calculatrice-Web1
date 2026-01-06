@@ -160,3 +160,18 @@ body.dark-mode .display input { background-color: #2a2a2a; color: #fff; }
 body.dark-mode .history ul::-webkit-scrollbar-thumb {
     background-color: rgba(255,255,255,0.2);
 }
+#clear-history {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #d9534f;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+#clear-history:hover {
+    background-color: #c9302c;
+}
