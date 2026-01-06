@@ -13,7 +13,7 @@ Une application de **calculatrice simple et moderne** réalisée en **HTML, CSS 
 - JavaScript
 
  💻 Aperçu
-*(Ajoute ici une capture d’écran du projet si tu veux)*
+
 
  ▶️ Exécution
 1. Télécharge le projet ou clone le dépôt :
