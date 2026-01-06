@@ -18,4 +18,4 @@ Une application de **calculatrice simple et moderne** réalisée en **HTML, CSS 
  ▶️ Exécution
 1. Télécharge le projet ou clone le dépôt :
    ```bash
-   git clone https://github.com/AngeliHerimpitia/Calculatrice.git
+   git clone https://github.com/AngeliHerimpitia/Calculatrice-Web-.git
