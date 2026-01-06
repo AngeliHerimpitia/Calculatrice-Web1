@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculatrice Professionnelle</title>
+    <title>Calculatrice Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="light-mode">
@@ -12,9 +12,11 @@
             <h2>Calculatrice</h2>
             <button id="toggle-theme">🌙</button>
         </div>
+
         <div class="display">
             <input type="text" id="result" readonly>
         </div>
+
         <div class="buttons">
             <button class="clear" onclick="clearDisplay()">C</button>
             <button class="delete" onclick="deleteLast()">⌫</button>
@@ -39,11 +41,12 @@
             <button class="zero" onclick="appendToDisplay('0')">0</button>
             <button onclick="appendToDisplay('.')">.</button>
         </div>
+
+        <!-- Historique des calculs -->
         <div class="history">
             <h3>Historique</h3>
             <ul id="history-list"></ul>
         </div>
-
     </div>
 
     <script src="script.js"></script>
