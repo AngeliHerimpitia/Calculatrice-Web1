@@ -45,4 +45,9 @@ document.addEventListener('keydown', (event) => {
     else if (key === '.') appendToDisplay('.');
     else if (key.toLowerCase() === 'c') clearDisplay();
 });
+const clearHistoryBtn = document.getElementById('clear-history');
+
+clearHistoryBtn.addEventListener('click', () => {
+    historyList.innerHTML = ''; // Vide complètement l'historique
+});
 
