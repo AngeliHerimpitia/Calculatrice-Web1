@@ -30,3 +30,15 @@ toggleBtn.addEventListener('click', () => {
     toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
+// SUPPORT CLAVIER
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    if (key >= '0' && key <= '9') appendToDisplay(key);
+    else if (key === '+' || key === '-' || key === '*' || key === '/')
+        appendToDisplay(key === '*' ? '×' : key === '/' ? '÷' : key);
+    else if (key === 'Enter') calculate();
+    else if (key === 'Backspace') deleteLast();
+    else if (key === '.') appendToDisplay('.');
+    else if (key.toLowerCase() === 'c') clearDisplay();
+});
