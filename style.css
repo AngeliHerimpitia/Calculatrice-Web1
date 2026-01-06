@@ -109,3 +109,37 @@ body.dark-mode .display input { background-color: #2a2a2a; color: #fff; }
     button { padding: 15px; font-size: 16px; }
     .top-bar h2 { font-size: 16px; }
 }
+.history {
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.history h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.history ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.history li {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.history li:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Mode sombre */
+body.dark-mode .history li:hover {
+    background-color: rgba(255,255,255,0.1);
+}
