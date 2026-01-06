@@ -1,47 +1,114 @@
-body{
+/* Reset & centering */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Poppins', Arial, sans-serif;
 }
+
+/* Calculatrice */
 .calculator {
-    background-color: white;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 320px;
 }
+
+/* Affichage */
 .display input {
     width: 100%;
     height: 60px;
-    font-size: 24px;
+    font-size: 28px;
     text-align: right;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
-.buttons{
+
+/* Grille des boutons */
+.buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
-button{
+
+/* Boutons généraux */
+button {
     padding: 20px;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: #e0e0e0;
+    background-color: #f0f0f0;
+    transition: all 0.2s;
 }
+
+/* Hover des boutons */
 button:hover {
-    background-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-.equals {
-    background-color: #4CAF50;
+
+/* Opérateurs */
+button.operator {
+    background-color: #ff9500;
+    color: white;
+}
+
+button.operator:hover {
+    background-color: #e08a00;
+}
+
+/* Clear et Delete */
+button.clear {
+    background-color: #ff3b30;
+    color: white;
+}
+
+button.clear:hover {
+    background-color: #e03228;
+}
+
+button.delete {
+    background-color: #5856d6;
+    color: white;
+}
+
+button.delete:hover {
+    background-color: #4b46c1;
+}
+
+/* = et 0 */
+button.equals {
+    background-color: #4caf50;
     color: white;
     grid-row: span 2;
 }
-.zero {
+
+button.equals:hover {
+    background-color: #449d48;
+}
+
+button.zero {
     grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .calculator {
+        width: 90%;
+        padding: 15px;
+    }
+    .display input {
+        height: 50px;
+        font-size: 22px;
+    }
+    button {
+        padding: 15px;
+        font-size: 18px;
+    }
 }
