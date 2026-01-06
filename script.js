@@ -12,17 +12,18 @@ function loadHistory() {
     const saved = localStorage.getItem('calcHistory');
     if (saved) {
         historyList.innerHTML = saved;
-        updateClearButton();
-        // Ajouter clic sur chaque item
+        // Réattacher l'événement click à chaque élément
         Array.from(historyList.children).forEach(li => {
             li.addEventListener('click', () => {
-                display.value = li.textContent.split(' = ')[1];
+                const result = li.textContent.split(' = ')[1];
+                display.value = result;
             });
         });
     }
+    updateClearButton(); // <-- mettre à jour le bouton après le chargement
 }
 
-// Mettre à jour bouton "Tout supprimer"
+// Mettre à jour le bouton "Tout supprimer"
 function updateClearButton() {
     clearHistoryBtn.style.display = historyList.children.length > 0 ? 'block' : 'none';
 }
@@ -33,14 +34,14 @@ function addToHistory(expression, result) {
     li.textContent = `${expression} = ${result}`;
     li.addEventListener('click', () => { display.value = result; });
     historyList.prepend(li);
-    updateClearButton();
+    updateClearButton();  // <-- bouton visible
     saveHistory();
 }
 
 // Supprimer tout l'historique
 clearHistoryBtn.addEventListener('click', () => {
     historyList.innerHTML = '';
-    updateClearButton();
+    updateClearButton(); // <-- bouton disparaît
     saveHistory();
 });
 
@@ -54,7 +55,9 @@ function calculate() {
         const result = eval(expression);
         addToHistory(display.value, result);
         display.value = result;
-    } catch { display.value = 'Erreur'; }
+    } catch {
+        display.value = 'Erreur';
+    }
 }
 
 // ===== MODE CLAIR/SOMBRE =====
