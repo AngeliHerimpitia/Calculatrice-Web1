@@ -4,17 +4,41 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
     font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Top bar avec titre et bouton thème */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.top-bar h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Bouton thème */
+#toggle-theme {
+    padding: 5px 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 /* Calculatrice */
 .calculator {
-    background-color: #fff;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     width: 320px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 /* Affichage */
@@ -24,9 +48,10 @@ body {
     font-size: 28px;
     text-align: right;
     padding: 0 15px;
-    border: 2px solid #ccc;
     border-radius: 10px;
+    border: 2px solid #ccc;
     margin-bottom: 15px;
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Grille des boutons */
@@ -43,11 +68,10 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #f0f0f0;
     transition: all 0.2s;
 }
 
-/* Hover des boutons */
+/* Hover général */
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -97,7 +121,39 @@ button.zero {
     grid-column: span 2;
 }
 
-/* Responsive */
+/* ===== MODE CLAIR ===== */
+body.light-mode {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #000;
+}
+
+body.light-mode .calculator {
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+body.light-mode .display input {
+    background: #f9f9f9;
+    color: #000;
+}
+
+/* ===== MODE SOMBRE ===== */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark-mode .calculator {
+    background: #2c2c2c;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+}
+
+body.dark-mode .display input {
+    background: #3a3a3a;
+    color: #fff;
+}
+
+/* Responsive petits écrans */
 @media (max-width: 400px) {
     .calculator {
         width: 90%;
@@ -109,6 +165,9 @@ button.zero {
     }
     button {
         padding: 15px;
+        font-size: 18px;
+    }
+    .top-bar h2 {
         font-size: 18px;
     }
 }
