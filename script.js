@@ -1,4 +1,5 @@
 const display = document.getElementById('result');
+const toggleBtn = document.getElementById('toggle-theme');
 
 function appendToDisplay(value) {
     display.value += value;
@@ -14,12 +15,19 @@ function deleteLast() {
 
 function calculate() {
     try {
-        // Convertir × et ÷ en opérateurs JS
         let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
-        // Évaluer
         let result = eval(expression);
         display.value = result;
     } catch (error) {
         display.value = 'Erreur';
     }
 }
+
+// Basculer thème clair/sombre
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    // Changer icône du bouton
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+});
+
