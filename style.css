@@ -20,7 +20,7 @@ body {
     width: 320px;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     transition: background 0.3s, box-shadow 0.3s;
 }
 
@@ -77,31 +77,12 @@ button:hover {
     opacity: 0.9;
 }
 
-/* ===== SPECIAUX ===== */
-button.operator {
-    background-color: #555;
-    color: #fff;
-}
-
-button.clear {
-    background-color: #d9534f;
-    color: #fff;
-}
-
-button.delete {
-    background-color: #5bc0de;
-    color: #fff;
-}
-
-button.equals {
-    background-color: #5cb85c;
-    color: #fff;
-    grid-row: span 2;
-}
-
-button.zero {
-    grid-column: span 2;
-}
+/* ===== COLORS ===== */
+button.operator { background-color: #555; color: #fff; }
+button.clear { background-color: #d9534f; color: #fff; }
+button.delete { background-color: #5bc0de; color: #fff; }
+button.equals { background-color: #5cb85c; color: #fff; grid-row: span 2; }
+button.zero { grid-column: span 2; }
 
 /* ===== MODE CLAIR ===== */
 body.light-mode {
@@ -109,14 +90,8 @@ body.light-mode {
     color: #000;
 }
 
-body.light-mode .calculator {
-    background-color: #fff;
-}
-
-body.light-mode .display input {
-    background-color: #f9f9f9;
-    color: #000;
-}
+body.light-mode .calculator { background-color: #fff; }
+body.light-mode .display input { background-color: #f9f9f9; color: #000; }
 
 /* ===== MODE SOMBRE ===== */
 body.dark-mode {
@@ -124,32 +99,13 @@ body.dark-mode {
     color: #fff;
 }
 
-body.dark-mode .calculator {
-    background-color: #1e1e1e;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-}
-
-body.dark-mode .display input {
-    background-color: #2a2a2a;
-    color: #fff;
-}
+body.dark-mode .calculator { background-color: #1e1e1e; box-shadow: 0 8px 25px rgba(0,0,0,0.7); }
+body.dark-mode .display input { background-color: #2a2a2a; color: #fff; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 400px) {
-    .calculator {
-        width: 90%;
-        padding: 15px;
-    }
-    .display input {
-        height: 50px;
-        font-size: 20px;
-    }
-    button {
-        padding: 15px;
-        font-size: 16px;
-    }
-    .top-bar h2 {
-        font-size: 16px;
-    }
+    .calculator { width: 90%; padding: 15px; }
+    .display input { height: 50px; font-size: 20px; }
+    button { padding: 15px; font-size: 16px; }
+    .top-bar h2 { font-size: 16px; }
 }
-
