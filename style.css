@@ -72,17 +72,52 @@ button {
     transition: all 0.2s;
 }
 
-/* Hover simple */
 button:hover {
     opacity: 0.9;
 }
 
-/* ===== COLORS ===== */
+/* ===== COULEURS BOUTONS ===== */
 button.operator { background-color: #555; color: #fff; }
 button.clear { background-color: #d9534f; color: #fff; }
 button.delete { background-color: #5bc0de; color: #fff; }
 button.equals { background-color: #5cb85c; color: #fff; grid-row: span 2; }
 button.zero { grid-column: span 2; }
+
+/* ===== HISTORIQUE ===== */
+.history {
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.history h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.history ul {
+    list-style: none;
+    padding-left: 0;
+    overflow-y: auto;
+}
+
+.history li {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.history li:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+body.dark-mode .history li:hover {
+    background-color: rgba(255,255,255,0.1);
+}
 
 /* ===== MODE CLAIR ===== */
 body.light-mode {
@@ -108,38 +143,20 @@ body.dark-mode .display input { background-color: #2a2a2a; color: #fff; }
     .display input { height: 50px; font-size: 20px; }
     button { padding: 15px; font-size: 16px; }
     .top-bar h2 { font-size: 16px; }
-}
-.history {
-    margin-top: 15px;
-    max-height: 150px;
-    overflow-y: auto;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
+    .history { max-height: 120px; padding-top: 8px; }
+    .history li { padding: 4px 8px; font-size: 14px; }
 }
 
-.history h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
+/* ===== SCROLLBAR HISTORIQUE ===== */
+.history ul::-webkit-scrollbar {
+    width: 6px;
 }
 
-.history ul {
-    list-style: none;
-    padding-left: 0;
+.history ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
 }
 
-.history li {
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-bottom: 3px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.history li:hover {
-    background-color: rgba(0,0,0,0.05);
-}
-
-/* Mode sombre */
-body.dark-mode .history li:hover {
-    background-color: rgba(255,255,255,0.1);
+body.dark-mode .history ul::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,0.2);
 }
