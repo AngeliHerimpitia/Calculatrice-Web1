@@ -126,4 +126,15 @@ window.addEventListener("appinstalled", () => {
   iosHint.style.display = "none";
   installedBadge.style.display = "block";
 });
+// Forcer affichage du bouton Installer
+window.addEventListener("load", () => {
+  const installBtn = document.getElementById("install-btn");
+  
+  // Laisser le bouton visible dès que l'utilisateur clique/interagit
+  installBtn.style.display = "block";
 
+  // bonus : suggestion après 3 sec si utilisateur interagit
+  setTimeout(() => {
+    installBtn.style.opacity = "1";
+  }, 3000);
+});
