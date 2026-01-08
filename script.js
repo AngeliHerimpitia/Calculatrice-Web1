@@ -77,4 +77,53 @@ document.addEventListener('keydown', (event) => {
 
 // ===== CHARGEMENT HISTORIQUE AU DÉMARRAGE =====
 loadHistory();
+let deferredPrompt;
+
+const installBtn = document.getElementById("install-btn");
+const iosHint = document.getElementById("ios-install-hint");
+const installedBadge = document.getElementById("installed-badge");
+
+// ===== Détection iOS =====
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+const isInStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+
+// ===== Si déjà installée =====
+if (isInStandalone) {
+  installedBadge.style.display = "block";
+}
+
+// ===== iOS : afficher message =====
+if (isIOS && !isInStandalone) {
+  iosHint.style.display = "block";
+}
+
+// ===== Android / PC =====
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block";
+});
+
+// ===== Clic Installer =====
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  // vibration si supportée
+  if (navigator.vibrate) navigator.vibrate(50);
+
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === "accepted") {
+    installBtn.style.display = "none";
+    deferredPrompt = null;
+  }
+});
+
+// ===== Après installation =====
+window.addEventListener("appinstalled", () => {
+  installBtn.style.display = "none";
+  iosHint.style.display = "none";
+  installedBadge.style.display = "block";
+});
 
